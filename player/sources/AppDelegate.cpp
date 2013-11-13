@@ -13,6 +13,9 @@
 
 // thrid_party
 #include "third_party_luabinding.h"
+#include "pbc-lua.h"
+#include "lpack.h"
+#include "CZHelperFunc_luabinding.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -46,11 +49,16 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     CCLuaStack *pStack = pEngine->getLuaStack();
     lua_State* L = pStack->getLuaState();
+    pStack->setXXTEAKeyAndSign("ylddz_key", strlen("ylddz_key"), "gwsoft", strlen("gwsoft"));
 
     // load lua extensions
     luaopen_lua_extensions(L);
     // load cocos2dx_extra luabinding
     luaopen_cocos2dx_extra_luabinding(L);
+    
+    luaopen_protobuf_c(L);
+    luaopen_pack(L);
+    luaopen_CZHelperFunc_luabinding(L);
 
     // thrid_party
     luaopen_third_party_luabinding(L);
@@ -87,10 +95,17 @@ bool AppDelegate::applicationDidFinishLaunching()
     env.append("\"");
     pEngine->executeString(env.c_str());
 
-    CCLOG("------------------------------------------------");
-    CCLOG("LOAD LUA FILE: %s", path.c_str());
-    CCLOG("------------------------------------------------");
-    pEngine->executeScriptFile(path.c_str());
+    if(pStack->loadChunksFromZip("scripts/game.bin"))
+    {
+        pEngine->executeString("require \"main\"");
+    }
+    else
+    {
+        CCLOG("------------------------------------------------");
+        CCLOG("LOAD LUA FILE: %s", path.c_str());
+        CCLOG("------------------------------------------------");
+        pEngine->executeScriptFile(path.c_str());
+    }
 
     return true;
 }

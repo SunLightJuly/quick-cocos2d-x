@@ -58,6 +58,10 @@ public:
     const string getScriptFileRealPath(void);
     void setScriptFile(const string scriptFile);
 
+    const string getScriptPackFile(void);
+    const string getScriptPackFileRealPath(void);
+    void setScriptPackFile(const string scriptPackFile);
+    
     const string getWritablePath(void);
     const string getWritableRealPath(void);
     void setWritablePath(const string writablePath);
@@ -99,6 +103,7 @@ public:
 private:
     string	m_projectDir;
     string	m_scriptFile;
+    string  m_scriptPackFile;
     string	m_packagePath;
     string  m_writablePath;
     CCSize	m_frameSize;

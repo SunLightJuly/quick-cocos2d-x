@@ -18,7 +18,8 @@ LOCAL_SRC_FILES := ../cocos2dx_support/CCLuaEngine.cpp \
     ../tolua/tolua_is.c \
     ../tolua/tolua_map.c \
     ../tolua/tolua_push.c \
-    ../tolua/tolua_to.c
+    ../tolua/tolua_to.c	\
+	
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../luajit/include \
                            $(LOCAL_PATH)/../tolua \
@@ -36,7 +37,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/ \
                     $(LOCAL_PATH)/../../../cocos2dx/platform/android \
                     $(LOCAL_PATH)/../../../cocos2dx/kazmath/include \
                     $(LOCAL_PATH)/../../../CocosDenshion/include \
-                    $(LOCAL_PATH)/../../../extensions
+                    $(LOCAL_PATH)/../../../extensions	\
+                    $(LOCAL_PATH)/../../../cocos2dx/support
 
 LOCAL_WHOLE_STATIC_LIBRARIES := luajit_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos_curl_static

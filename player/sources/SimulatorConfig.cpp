@@ -14,6 +14,7 @@ void ProjectConfig::resetToWelcome(void)
     setProjectDir(path);
     setWritablePath(path);
     setScriptFile("$PROJDIR/scripts/main.lua");
+    setScriptPackFile("$PROJDIR/scripts/game.bin");
     setFrameSize(CCSize(960, 540));
     setFrameScale(1.0f);
     setLoadPrecompiledFramework(true);
@@ -48,6 +49,22 @@ void ProjectConfig::setScriptFile(const string scriptFile)
 {
     m_scriptFile = scriptFile;
     normalize();
+}
+
+const string ProjectConfig::getScriptPackFile(void)
+{
+    return m_scriptPackFile;
+}
+
+const string ProjectConfig::getScriptPackFileRealPath(void)
+{
+    return replaceProjectDirToFullPath(m_scriptPackFile);
+}
+
+void ProjectConfig::setScriptPackFile(const string scriptPackFile)
+{
+    m_scriptPackFile = scriptPackFile;
+    //normalize();
 }
 
 const string ProjectConfig::getWritablePath(void)
@@ -378,7 +395,10 @@ bool ProjectConfig::validate(void)
     CCFileUtils *utils = CCFileUtils::sharedFileUtils();
     if (!utils->isDirectoryExist(m_projectDir)) return false;
     if (!utils->isDirectoryExist(getWritableRealPath())) return false;
-    if (!utils->isFileExist(getScriptFileRealPath())) return false;
+    if (!utils->isFileExist(getScriptFileRealPath())
+        && !utils->isFileExist(getScriptPackFileRealPath())
+        )
+        return false;
     return true;
 }
 

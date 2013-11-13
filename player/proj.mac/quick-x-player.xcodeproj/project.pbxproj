@@ -405,6 +405,9 @@
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/third_party/chipmunk/include\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/third_party/chipmunk/luabinding\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/third_party\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/proj.mac\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/apptools\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/pbc-master\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INFOPLIST_OUTPUT_FORMAT = binary;
@@ -457,6 +460,9 @@
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/third_party/chipmunk/include\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/third_party/chipmunk/luabinding\"",
 					"\"$(QUICK_COCOS2DX_ROOT)/lib/third_party\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/proj.mac\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/apptools\"",
+					"\"$(QUICK_COCOS2DX_ROOT)/lib/pbc-master\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INFOPLIST_OUTPUT_FORMAT = binary;

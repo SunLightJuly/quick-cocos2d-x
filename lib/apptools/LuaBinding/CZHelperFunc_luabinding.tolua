@@ -1,0 +1,6 @@
+class CZHelperFunc
+{
+public:
+    static unsigned int adler32(const char *data, int len);
+    static LUA_STRING getFileData(const char *pPathFile);
+};

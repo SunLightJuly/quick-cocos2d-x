@@ -16,6 +16,8 @@ LOCAL_WHOLE_STATIC_LIBRARIES += cocos_curl_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_extra
 LOCAL_WHOLE_STATIC_LIBRARIES += lua_extensions
 LOCAL_WHOLE_STATIC_LIBRARIES += third_party
+LOCAL_WHOLE_STATIC_LIBRARIES += pbc
+LOCAL_WHOLE_STATIC_LIBRARIES += apptools
 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -26,3 +28,5 @@ $(call import-module,scripting/lua/proj.android)
 $(call import-module,lib/cocos2dx_extra/proj.android)
 $(call import-module,lib/lua_extensions/proj.android)
 $(call import-module,lib/third_party/proj.android)
+$(call import-module,lib/pbc-master)
+$(call import-module,lib/apptools)
