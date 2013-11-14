@@ -112,7 +112,19 @@ if ($config['config'])
     $configFilename = $config['config'];
     if (file_exists($configFilename))
     {
-        $config = @include($configFilename);
+        //$config = @include($configFilename);
+        @include($configFilename);
+        $config = array(
+                        "src"=>'scripts',
+                        "output"=>'game.bin',
+                        "prefix"=>null,
+                        "excludes"=>null,
+                        "compile"=>'zip',
+                        "encrypt"=>'xxtea_zip',
+                        "key"=>'ylddz_key',
+                        "sign"=>'gwsoft'
+                        );
+        printf("GO!!!!\n");
     }
     else
     {
@@ -130,6 +142,7 @@ if ($config['config'])
 $compiler = new ScriptsCompiler($config, $options);
 if ($compiler->validateConfig())
 {
+    printf("RUN!!!!");
     return($compiler->run());
 }
 else
