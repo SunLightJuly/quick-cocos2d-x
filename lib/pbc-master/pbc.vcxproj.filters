@@ -78,5 +78,6 @@
     <ClCompile Include="src\alloc.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="binding\lua\pbc-lua.c" />
   </ItemGroup>
 </Project>

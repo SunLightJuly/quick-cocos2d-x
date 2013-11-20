@@ -11,6 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\apptools\CZHelperFunc_luabinding.cpp" />
+    <ClCompile Include="..\apptools\HelperFunc.cpp" />
+    <ClCompile Include="..\apptools\lpack.c" />
     <ClCompile Include="..\cocos2d-x\cocos2dx\actions\CCAction.cpp" />
     <ClCompile Include="..\cocos2d-x\cocos2dx\actions\CCActionCamera.cpp" />
     <ClCompile Include="..\cocos2d-x\cocos2dx\actions\CCActionCatmullRom.cpp" />
@@ -125,7 +128,9 @@
     <ClCompile Include="..\cocos2d-x\cocos2dx\support\tinyxml2\tinyxml2.cpp" />
     <ClCompile Include="..\cocos2d-x\cocos2dx\support\TransformUtils.cpp" />
     <ClCompile Include="..\cocos2d-x\cocos2dx\support\user_default\CCUserDefault.cpp" />
+    <ClCompile Include="..\cocos2d-x\cocos2dx\support\xxtea.c" />
     <ClCompile Include="..\cocos2d-x\cocos2dx\support\zip_support\ioapi.cpp" />
+    <ClCompile Include="..\cocos2d-x\cocos2dx\support\zip_support\ioapi_mem.cpp" />
     <ClCompile Include="..\cocos2d-x\cocos2dx\support\zip_support\unzip.cpp" />
     <ClCompile Include="..\cocos2d-x\cocos2dx\support\zip_support\ZipUtils.cpp" />
     <ClCompile Include="..\cocos2d-x\cocos2dx\textures\CCTexture2D.cpp" />
@@ -233,6 +238,9 @@
     <ClCompile Include="..\cocos2d-x\scripting\lua\tolua\tolua_to.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\apptools\CZHelperFunc_luabinding.h" />
+    <ClInclude Include="..\apptools\HelperFunc.h" />
+    <ClInclude Include="..\apptools\lpack.h" />
     <ClInclude Include="..\cocos2d-x\cocos2dx\actions\CCAction.h" />
     <ClInclude Include="..\cocos2d-x\cocos2dx\actions\CCActionCamera.h" />
     <ClInclude Include="..\cocos2d-x\cocos2dx\actions\CCActionCatmullRom.h" />
@@ -417,7 +425,9 @@
     <ClInclude Include="..\cocos2d-x\cocos2dx\support\tinyxml2\tinyxml2.h" />
     <ClInclude Include="..\cocos2d-x\cocos2dx\support\TransformUtils.h" />
     <ClInclude Include="..\cocos2d-x\cocos2dx\support\user_default\CCUserDefault.h" />
+    <ClInclude Include="..\cocos2d-x\cocos2dx\support\xxtea.h" />
     <ClInclude Include="..\cocos2d-x\cocos2dx\support\zip_support\ioapi.h" />
+    <ClInclude Include="..\cocos2d-x\cocos2dx\support\zip_support\ioapi_mem.h" />
     <ClInclude Include="..\cocos2d-x\cocos2dx\support\zip_support\unzip.h" />
     <ClInclude Include="..\cocos2d-x\cocos2dx\support\zip_support\ZipUtils.h" />
     <ClInclude Include="..\cocos2d-x\cocos2dx\textures\CCTexture2D.h" />
@@ -589,7 +599,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;GL_GLEXT_PROTOTYPES;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CC_LUA_ENGINE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\include;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\kazmath\include;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\support;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\support\tinyxml2;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\win32;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\curl;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\iconv;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\libjpeg;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\libpng;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\libtiff;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\libwebp;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\OGLES;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\pthread;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\zlib;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\CocosDenshion\include;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\CocosDenshion\win32;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\scripting\lua\cocos2dx_support;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\scripting\lua\tolua;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\scripting\lua\luajit\include;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions\GUI\CCControlExtension;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions\GUI\CCEditBox;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions\GUI\CCScrollView;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions\AssetsManager;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions\CCBReader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\include;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\kazmath\include;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\support;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\support\tinyxml2;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\win32;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\curl;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\iconv;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\libjpeg;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\libpng;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\libtiff;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\libwebp;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\OGLES;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\pthread;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\cocos2dx\platform\third_party\win32\zlib;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\CocosDenshion\include;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\CocosDenshion\win32;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\scripting\lua\cocos2dx_support;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\scripting\lua\tolua;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\scripting\lua\luajit\include;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions\GUI\CCControlExtension;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions\GUI\CCEditBox;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions\GUI\CCScrollView;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions\AssetsManager;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\extensions\CCBReader;$(QUICK_COCOS2DX_ROOT)\lib\pbc-master;$(QUICK_COCOS2DX_ROOT)\lib\pbc-master\src;$(QUICK_COCOS2DX_ROOT)\lib\apptools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4251;4068;4244;4800</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>

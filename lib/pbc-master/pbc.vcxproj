@@ -24,6 +24,7 @@
     <ClInclude Include="src\varint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="binding\lua\pbc-lua.c" />
     <ClCompile Include="src\alloc.c" />
     <ClCompile Include="src\array.c" />
     <ClCompile Include="src\bootstrap.c" />
@@ -73,7 +74,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;.\pbc;.\pbc\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;.\pbc;.\pbc\src;$(QUICK_COCOS2DX_ROOT)\lib\cocos2d-x\scripting\lua\luajit\include;</AdditionalIncludeDirectories>
       <SDLCheck>true</SDLCheck>
       <CompileAs>CompileAsCpp</CompileAs>
       <DisableSpecificWarnings>4146;4273;4244;4018</DisableSpecificWarnings>
