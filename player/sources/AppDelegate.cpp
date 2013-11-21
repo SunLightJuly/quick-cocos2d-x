@@ -16,6 +16,7 @@
 #include "pbc-lua.h"
 #include "lpack.h"
 #include "CZHelperFunc_luabinding.h"
+#include "Lua_web_socket.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -56,6 +57,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     // load cocos2dx_extra luabinding
     luaopen_cocos2dx_extra_luabinding(L);
     
+	tolua_web_socket_open(L);
     luaopen_protobuf_c(L);
     luaopen_pack(L);
     luaopen_CZHelperFunc_luabinding(L);
