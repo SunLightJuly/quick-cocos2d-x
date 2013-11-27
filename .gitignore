@@ -32,3 +32,4 @@ lib/third_party/proj.win32/Debug/
 *.tlog
 lib/pbc-master/Debug/pbc.lastbuildstate
 lib/pbc-master/Debug/vc110.idb
+lib/cocos2d-x/scripting/lua/cocos2dx_support/xxdefaultkey.h

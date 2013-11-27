@@ -45,14 +45,16 @@ bool ProjectConfigDialog::checkConfig(void)
             SetFocus(GetDlgItem(m_hwndDialog, IDC_EDIT_PROJECT_DIR));
             break;
         }
-
-        if (!FileExists(m_project.getScriptFileRealPath().c_str()))
+/*
+        if (!FileExists(m_project.getScriptFileRealPath().c_str())
+            && !FileExists(m_project.getScriptPackFileRealPath().c_str())
+            )
         {
             MessageBox(m_hwndDialog, L"Invalid Script File, please check it", L"Error", MB_OK);
             SetFocus(GetDlgItem(m_hwndDialog, IDC_EDIT_SCRIPT_FILE));
             break;
         }
-
+*/
         // check screen size
         HWND list = GetDlgItem(m_hwndDialog, IDC_COMBO_SCREEN_SIZE);
         int index = ComboBox_GetCurSel(list);

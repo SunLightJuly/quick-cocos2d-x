@@ -482,6 +482,13 @@ int CCLuaStack::loadChunksFromZip(const char *zipFilePath)
     return ret;
 }
 
+void CCLuaStack::setXXTEAKeyAndSign()
+{
+#include "xxdefaultkey.h"
+setXXTEAKeyAndSign(LUASTACK_XXTEA_KEY_Z, strlen(LUASTACK_XXTEA_KEY_Z), 
+						   LUASTACK_XXTEA_SIGN_Z, strlen(LUASTACK_XXTEA_SIGN_Z));
+}
+
 void CCLuaStack::setXXTEAKeyAndSign(const char *key, int keyLen, const char *sign, int signLen)
 {
     if (m_xxteaKey)

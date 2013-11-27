@@ -8,8 +8,9 @@
 
 void ProjectConfig::resetToWelcome(void)
 {
-    string path = SimulatorConfig::sharedDefaults()->getQuickCocos2dxRootPath();
-    path.append("player/welcome");
+    //string path = SimulatorConfig::sharedDefaults()->getQuickCocos2dxRootPath();
+    string path = getenv(".");
+    path.append("game");
     SimulatorConfig::makeNormalizePath(&path);
     setProjectDir(path);
     setWritablePath(path);

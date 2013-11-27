@@ -126,6 +126,7 @@ public:
     
     virtual int loadChunksFromZip(const char *zipFilePath);
     virtual void setXXTEAKeyAndSign(const char *key, int keyLen, const char *sign, int signLen);
+    virtual void setXXTEAKeyAndSign();
     
 protected:
     CCLuaStack(void)

@@ -50,7 +50,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     CCLuaStack *pStack = pEngine->getLuaStack();
     lua_State* L = pStack->getLuaState();
-    pStack->setXXTEAKeyAndSign("ylddz_key", strlen("ylddz_key"), "gwsoft", strlen("gwsoft"));
+    pStack->setXXTEAKeyAndSign();
 
     // load lua extensions
     luaopen_lua_extensions(L);
