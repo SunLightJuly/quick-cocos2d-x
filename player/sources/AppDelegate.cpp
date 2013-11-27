@@ -69,7 +69,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     if (m_projectConfig.isLoadPrecompiledFramework())
     {
         const string precompiledFrameworkPath = SimulatorConfig::sharedDefaults()->getPrecompiledFrameworkPath();
-        pStack->loadChunksFromZip(precompiledFrameworkPath.c_str());
+        pStack->loadChunksFromZIP(precompiledFrameworkPath.c_str());
     }
 
     // load script
@@ -97,7 +97,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     env.append("\"");
     pEngine->executeString(env.c_str());
 
-    if(pStack->loadChunksFromZip("scripts/game.bin"))
+    if(pStack->loadChunksFromZIP("scripts/game.bin"))
     {
         pEngine->executeString("require \"main\"");
     }

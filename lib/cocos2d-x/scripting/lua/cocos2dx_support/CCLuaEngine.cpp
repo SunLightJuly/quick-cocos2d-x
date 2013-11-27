@@ -330,7 +330,7 @@ int CCLuaEngine::reallocateScriptHandler(int nHandler)
     m_stack->clean();
     return nRet;
 }
-
+#if 0
 #include "tolua_fix.h"
 TOLUA_API int toluafix_pushusertype_ccobject(lua_State* L,
                                              int refid,
@@ -370,5 +370,5 @@ TOLUA_API int toluafix_pushusertype_ccobject(lua_State* L,
     tolua_pushusertype(L, ptr, type);
     return 0;
 }
-
+#endif
 NS_CC_END
