@@ -330,7 +330,7 @@ int CCLuaEngine::reallocateScriptHandler(int nHandler)
     m_stack->clean();
     return nRet;
 }
-#if 0
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 #include "tolua_fix.h"
 TOLUA_API int toluafix_pushusertype_ccobject(lua_State* L,
                                              int refid,

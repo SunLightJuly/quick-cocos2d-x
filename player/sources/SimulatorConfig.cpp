@@ -8,9 +8,13 @@
 
 void ProjectConfig::resetToWelcome(void)
 {
-    //string path = SimulatorConfig::sharedDefaults()->getQuickCocos2dxRootPath();
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS) && (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
     string path = getenv(".");
     path.append("game");
+#else
+    string path = SimulatorConfig::sharedDefaults()->getQuickCocos2dxRootPath();
+    path.append("player/welcome");
+#endif
     SimulatorConfig::makeNormalizePath(&path);
     setProjectDir(path);
     setWritablePath(path);

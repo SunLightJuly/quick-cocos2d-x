@@ -875,6 +875,7 @@ int CCLuaStack::lua_typen(lua_State *L)
 
 NS_CC_END
 
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS) && (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
 
 USING_NS_CC;
 
@@ -933,3 +934,4 @@ TOLUA_API int toluafix_pushusertype_ccobject(lua_State *L,
     tolua_pushusertype(L, ptr, type ? type : vtype);
     return 0;
 }
+#endif

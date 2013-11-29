@@ -16,7 +16,9 @@
 #include "pbc-lua.h"
 #include "lpack.h"
 #include "CZHelperFunc_luabinding.h"
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS) && (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
 #include "Lua_web_socket.h"
+#endif
 
 using namespace std;
 using namespace cocos2d;
@@ -57,7 +59,9 @@ bool AppDelegate::applicationDidFinishLaunching()
     // load cocos2dx_extra luabinding
     luaopen_cocos2dx_extra_luabinding(L);
     
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS) && (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
 	tolua_web_socket_open(L);
+#endif
     luaopen_protobuf_c(L);
     luaopen_pack(L);
     luaopen_CZHelperFunc_luabinding(L);

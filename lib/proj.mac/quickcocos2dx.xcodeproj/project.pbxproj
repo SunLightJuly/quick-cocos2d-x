@@ -381,6 +381,7 @@
 		491CA0D81828C2BF00CCC7B4 /* varint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = varint.h; sourceTree = "<group>"; };
 		491CA0D91828C2BF00CCC7B4 /* wmessage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wmessage.c; sourceTree = "<group>"; };
 		491CA0DB1828C2BF00CCC7B4 /* dump.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dump.c; sourceTree = "<group>"; };
+		49343ABC1848603800791E06 /* xxdefaultkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xxdefaultkey.h; sourceTree = "<group>"; };
 		49D2A4FF1830AB60008CC5E7 /* ioapi_mem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ioapi_mem.cpp; sourceTree = "<group>"; };
 		49D2A5001830AB60008CC5E7 /* ioapi_mem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi_mem.h; sourceTree = "<group>"; };
 		F4110EB117CC54D80062C519 /* CCBProxy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCBProxy.cpp; sourceTree = "<group>"; };
@@ -1979,6 +1980,7 @@
 		F4DE0AB216800261005DB2DB /* cocos2dx_support */ = {
 			isa = PBXGroup;
 			children = (
+				49343ABC1848603800791E06 /* xxdefaultkey.h */,
 				F4B4EEC016C7E05800736FFE /* CCLuaBridge.cpp */,
 				F4B4EEC116C7E05800736FFE /* CCLuaBridge.h */,
 				F4A9C07316BC3AF400088CF7 /* CCLuaEngine.cpp */,
