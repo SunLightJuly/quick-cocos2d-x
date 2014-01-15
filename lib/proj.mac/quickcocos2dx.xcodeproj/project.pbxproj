@@ -1799,8 +1799,8 @@
 				F4DE084216800151005DB2DB /* cocos2d-x */,
 			);
 			name = libquickcocos2dx;
-			path = lib;
-			sourceTree = QUICK_COCOS2DX_ROOT;
+			path = ..;
+			sourceTree = "<group>";
 		};
 		F4DE084216800151005DB2DB /* cocos2d-x */ = {
 			isa = PBXGroup;

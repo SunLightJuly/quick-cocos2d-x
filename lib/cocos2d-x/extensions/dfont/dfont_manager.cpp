@@ -588,7 +588,18 @@ FontCatalog* FontFactory::create_font(
 		DFONT_TEXTURE_SIZE_HEIGHT, 
 		DFONT_MAX_TEXTURE_NUM_PERFONT);
 
-	m_fonts[alias] = catalog;
+    if (m_fonts[DFONT_DEFAULT_FONTALIAS]==NULL)
+    {
+        m_fonts[DFONT_DEFAULT_FONTALIAS] = catalog;
+        catalog = new FontCatalog(font,
+                                  DFONT_TEXTURE_SIZE_WIDTH,
+                                  DFONT_TEXTURE_SIZE_HEIGHT,
+                                  DFONT_MAX_TEXTURE_NUM_PERFONT);
+    }
+    //else
+    {
+        m_fonts[alias] = catalog;
+    }
 
 	return catalog;
 }

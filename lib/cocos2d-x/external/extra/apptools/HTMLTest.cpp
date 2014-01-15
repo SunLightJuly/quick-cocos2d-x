@@ -79,6 +79,7 @@ bool HTMLTest::init()
 	font_catalog = FontFactory::instance()->create_font(
 		"font1", "simhei.ttf", 0xffffffff, 32, e_plain, 0.0f, 0xffffffff, 0);
 	CCLuaLog("entry HTMLTest::init()-------------------1");
+#if 0
 	// font2
 	font_catalog = FontFactory::instance()->create_font(
 		"font2", "simkai.ttf", 0xffffffff, 24, e_shadow, 1.0f, 0xff000000, 0);
@@ -91,7 +92,7 @@ bool HTMLTest::init()
 	CCLuaLog("entry HTMLTest::init()-------------------3");
 	font_catalog->add_hackfont("simhei.ttf", latin_charset(), 5);
 	CCLuaLog("entry HTMLTest::init()-------------------33");
-
+#endif
 	//////////////////////////////////////////////////////////////////////////
 	
 	CCSize vsize = CCDirector::sharedDirector()->getVisibleSize();
