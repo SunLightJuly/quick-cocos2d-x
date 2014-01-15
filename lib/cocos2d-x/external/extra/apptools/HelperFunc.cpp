@@ -58,3 +58,12 @@ int CZHelperFunc::getFileData(const char *pPathFile)
     delete buf;
     return 1;
 }
+
+#include "HTMLTest.h"
+
+void CZHelperFunc::testCallFunc()
+{
+	CCLuaLog("entry CZHelperFunc::testCallFunc()");
+    CCScene *pScene = HTMLTest::scene();
+    CCDirector::sharedDirector()->runWithScene(pScene);
+}

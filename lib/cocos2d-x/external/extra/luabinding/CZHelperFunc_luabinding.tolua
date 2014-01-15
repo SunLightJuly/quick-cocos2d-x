@@ -2,4 +2,5 @@ class CZHelperFunc
 {
 public:
     static LUA_STRING getFileData(const char *pPathFile);
+	static void testCallFunc();
 };

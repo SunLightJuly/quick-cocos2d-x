@@ -1,6 +1,6 @@
 /*
 ** Lua binding: CZHelperFunc_luabinding
-** Generated automatically by tolua++-1.0.92 on 01/10/14 14:10:29.
+** Generated automatically by tolua++-1.0.92 on 01/14/14 13:28:08.
 */
 
 #include "CZHelperFunc_luabinding.h"
@@ -58,6 +58,33 @@ static int tolua_CZHelperFunc_luabinding_CZHelperFunc_getFileData00(lua_State* t
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: testCallFunc of class  CZHelperFunc */
+#ifndef TOLUA_DISABLE_tolua_CZHelperFunc_luabinding_CZHelperFunc_testCallFunc00
+static int tolua_CZHelperFunc_luabinding_CZHelperFunc_testCallFunc00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"CZHelperFunc",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  {
+   CZHelperFunc::testCallFunc();
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'testCallFunc'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* Open function */
 TOLUA_API int tolua_CZHelperFunc_luabinding_open (lua_State* tolua_S)
 {
@@ -68,6 +95,7 @@ TOLUA_API int tolua_CZHelperFunc_luabinding_open (lua_State* tolua_S)
   tolua_cclass(tolua_S,"CZHelperFunc","CZHelperFunc","",NULL);
   tolua_beginmodule(tolua_S,"CZHelperFunc");
    tolua_function(tolua_S,"getFileData",tolua_CZHelperFunc_luabinding_CZHelperFunc_getFileData00);
+   tolua_function(tolua_S,"testCallFunc",tolua_CZHelperFunc_luabinding_CZHelperFunc_testCallFunc00);
   tolua_endmodule(tolua_S);
  tolua_endmodule(tolua_S);
  return 1;

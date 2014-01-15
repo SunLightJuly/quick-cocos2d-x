@@ -80,10 +80,33 @@ ifndef $(QUICK_MINI_TARGET)
 
 endif
 
+    LOCAL_SRC_FILES += \
+./dfont/dfont_utility.cpp \
+./dfont/dfont_render.cpp \
+./dfont/dfont_manager.cpp \
+./RichControls/CCHTMLLabel.cpp \
+./RichControls/CCRichAtlas.cpp \
+./RichControls/CCRichCache.cpp \
+./RichControls/CCRichCompositor.cpp \
+./RichControls/CCRichElement.cpp \
+./RichControls/CCRichNode.cpp \
+./RichControls/CCRichOverlay.cpp \
+./RichControls/CCRichParser.cpp \
+./cells/CCell.cpp \
+./cells/CCells.cpp \
+./cells/CCreationFactory.cpp \
+./cells/CCreationWorker.cpp \
+./cells/CDownloader.cpp \
+./cells/CUtils.cpp \
+./cells/cells.cpp \
+./cells/md5.c \
+./cells/zpip.c
+
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos_lua_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_freetype2_static
 
 ifndef $(QUICK_MINI_TARGET)
 
@@ -117,7 +140,6 @@ ifndef $(QUICK_MINI_TARGET)
 
 endif
 
-
 LOCAL_C_INCLUDES = $(LOCAL_EXPORT_C_INCLUDES)
 
 LOCAL_CFLAGS := -fexceptions
@@ -127,6 +149,7 @@ include $(BUILD_STATIC_LIBRARY)
 $(call import-module,cocos2dx)
 $(call import-module,CocosDenshion/android)
 $(call import-module,scripting/lua/proj.android)
+$(call import-module,cocos2dx/platform/third_party/android/prebuilt/libfreetype2)
 
 ifndef $(QUICK_MINI_TARGET)
     $(call import-module,external/libwebsockets/android)

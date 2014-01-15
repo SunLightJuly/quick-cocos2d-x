@@ -9,6 +9,8 @@ public:
     static int getFileData(const char *pPathFile);
     static unsigned char* getFileData(const char* pszFileName, const char* pszMode, unsigned long * pSize);
 
+	static void testCallFunc();
+
 private:
 
 };
