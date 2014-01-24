@@ -1,0 +1,21 @@
+$#include "CCHTMLLabel.h"
+$USING_NS_CC_EXT;
+
+class CCHTMLLabel : public CCNode
+{
+public:
+	static CCHTMLLabel* create();
+	static CCHTMLLabel* createWithString(const char* utf8_str, CCSize preferred_size, const char* font_alias);
+	bool initWithString(const char* utf8_str, CCSize preferred_size, const char* font_alias);
+
+	// from CCLabelProtocol
+	void setString(const char *utf8_str);
+	const char* getString(void);
+
+	// append string, faster if you only add additional string to tail
+	void appendString(const char *utf8_str);
+
+	void registerLuaClickListener(LUA_FUNCTION click_handle);
+	void registerLuaMovedListener(LUA_FUNCTION moved_handle);
+	void removeLuaListener(LUA_FUNCTION handle);
+};

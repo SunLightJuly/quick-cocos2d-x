@@ -64,6 +64,8 @@ int CZHelperFunc::getFileData(const char *pPathFile)
 void CZHelperFunc::testCallFunc()
 {
 	CCLuaLog("entry CZHelperFunc::testCallFunc()");
-    CCScene *pScene = HTMLTest::scene();
-    CCDirector::sharedDirector()->runWithScene(pScene);
+    //CCScene *pScene = HTMLTest::scene();
+    //CCDirector::sharedDirector()->runWithScene(pScene);
+
+	HTMLTest::initFont();
 }

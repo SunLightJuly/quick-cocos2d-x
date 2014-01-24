@@ -134,7 +134,7 @@ void HTMLTest::onHTMLClicked(
 	}
 	else if ( _id == 2000 ) //reload
 	{
-		CCString* str_utf8 = CCString::createWithContentsOfFile("htmltest/html.htm");
+		CCString* str_utf8 = CCString::createWithContentsOfFile("html.htm");
 		s_htmlLabel->setString(str_utf8->getCString());	
 	}
 }
@@ -173,4 +173,15 @@ int HTMLTest::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
  int HTMLTest::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
  {
 	 return 1;
+ }
+
+ void HTMLTest::initFont()
+ {
+	CCLuaLog("entry HTMLTest::initFont()-------------------0");
+	using namespace dfont;
+	// font1
+	FontCatalog* font_catalog = NULL;
+	font_catalog = FontFactory::instance()->create_font(
+		"font1", "simhei.ttf", 0xffffffff, 32, e_plain, 0.0f, 0xffffffff, 0);
+	CCLuaLog("entry HTMLTest::initFont()-------------------1");
  }

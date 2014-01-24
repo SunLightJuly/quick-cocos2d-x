@@ -27,6 +27,8 @@
 
 #include "CCRichNode.h"
 
+#define CCRICH_ENABLE_LUA_BINDING 1
+
 #if CCRICH_ENABLE_LUA_BINDING
 #	include "CCLuaEngine.h"
 #	include "CCRichElement.h"

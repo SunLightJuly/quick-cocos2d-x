@@ -15,6 +15,7 @@ public:
 
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::CCScene* scene();
+	static void initFont();
     
     // a selector callback
     void menuCloseCallback(CCObject* pSender);

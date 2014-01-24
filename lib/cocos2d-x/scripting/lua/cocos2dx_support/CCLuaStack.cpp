@@ -72,6 +72,8 @@ extern "C" {
 // lua extensions
 #include "lua_extensions.h"
 
+#include "CCHTMLLabel_luabinding.h"
+
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS && CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
 // debugger
 #include "debugger/debugger.h"
@@ -177,6 +179,8 @@ bool CCLuaStack::init(void)
     luaopen_lua_extensions(m_state);
 
 #endif // QUICK_MINI_TARGET
+
+	luaopen_CCHTMLLabel_luabinding(m_state);
 
     return true;
 }

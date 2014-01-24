@@ -112,10 +112,8 @@ bool REleBase::composit(class IRichCompositor* compositor)
 	m_rPos.x = state->pen_x;
 	m_rPos.y = state->pen_y;
 
-	CCLuaLog("entry RSimpleHTMLCompositor::composit-------------------onCompositStart");
 	onCompositStart(compositor);
 
-	CCLuaLog("entry RSimpleHTMLCompositor::composit-------------------pushMetricsState");
 	if ( pushMetricsState() )
 	{
 		compositor->pushMetricsState();
@@ -127,24 +125,19 @@ bool REleBase::composit(class IRichCompositor* compositor)
 		mstate->pen_y = 0;
 	}
 
-	CCLuaLog("entry RSimpleHTMLCompositor::composit-------------------pushRenderState");
 	if ( pushRenderState() )
 	{
 		compositor->pushRenderState();
 	}
 
-	CCLuaLog("entry RSimpleHTMLCompositor::composit-------------------onCompositStatePushed");
 	onCompositStatePushed(compositor);
 
 	RRect minrect;
 	element_list_t* children = getChildren();
-	CCLog("-------------------children=%d", ((children!=NULL)?111:100));
-	if ( children!=NULL )
+	if ( children )
 	{
-	CCLog("-------------------(children)=%x",(children));
 		for ( element_list_t::iterator it = children->begin(); it != children->end(); it++ )
 		{
-	//CCLog("element_list_t::iterator-------------------(*it)=%x",(*it));
 			(*it)->composit(compositor);
 			if ( !(*it)->isCachedComposit() )
 			{
@@ -158,22 +151,18 @@ bool REleBase::composit(class IRichCompositor* compositor)
 	}
 
 	// flush last line
-	CCLog("-------------------%s", "getParent");
 	if ( getParent() == NULL )
 	{
 		RRect subrect = compositor->getMetricsState()->elements_cache->flush(compositor);
 		minrect.extend(subrect);
 	}
 
-	CCLog("-------------------%s", "onCompositChildrenEnd");
 	onCompositChildrenEnd(compositor);
 
-	CCLog("-------------------%s", "pushRenderState");
 	if ( pushRenderState() )
 	{
 		compositor->popRenderState();
 	}
-	CCLog("-------------------%s", "pushMetricsState");
 	if ( pushMetricsState() )
 	{
 		compositor->popMetricsState();
@@ -183,13 +172,10 @@ bool REleBase::composit(class IRichCompositor* compositor)
 	m_rMetrics.rect.extend(minrect);
 
 
-	CCLog("-------------------%s", "onCompositFinish");
 	if ( onCompositFinish(compositor) )
 	{
-		CCLog("onCompositFinish-------------------%s", "isCachedComposit");
 		if ( isCachedComposit() )
 		{
-		CCLog("isCachedComposit-------------------%s", "appendElement");
 			compositor->getMetricsState()->elements_cache->appendElement(this);
 		}
 		else
@@ -200,7 +186,6 @@ bool REleBase::composit(class IRichCompositor* compositor)
 		}
 	}
 
-	CCLog("-------------------%s", "return");
 	return true;
 }
 
