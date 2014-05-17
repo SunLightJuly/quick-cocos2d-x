@@ -28,7 +28,13 @@ lib/proj.win32/Release/
 */*/proj.android/obj/
 */*/proj.android/assets/
 */*/proj.android/libs/
+<<<<<<< .merge_file_a03064
 lib/cocos2dx_extra/proj.win32/Debug/
 lib/lua_extensions/proj.win32/Debug/
 lib/pbc-master/Debug/
 lib/third_party/proj.win32/Debug/
+=======
+*.tlog
+*.lastbuildstate
+*.idb
+>>>>>>> .merge_file_a02748
