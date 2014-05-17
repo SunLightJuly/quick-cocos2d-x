@@ -5,12 +5,20 @@
 #include "support/CCNotificationCenter.h"
 #include "CCLuaEngine.h"
 #include <string>
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_QT)
+#include "player.h"
+#endif
 
 using namespace std;
 using namespace cocos2d;
 using namespace CocosDenshion;
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_QT)
+AppDelegate::AppDelegate(int argc, char *argv[])
+    : CCApplication(argc, argv)
+#else
 AppDelegate::AppDelegate()
+#endif
 {
     // fixed me
     //_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF|_CRTDBG_LEAK_CHECK_DF);
@@ -34,6 +42,10 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     // register lua engine
     CCScriptEngineManager::sharedManager()->setScriptEngine(CCLuaEngine::defaultEngine());
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_QT)
+    // regist my own lua
+    Player::registerAllCpp();
+#endif
 
     StartupCall *call = StartupCall::create(this);
     if (m_projectConfig.getDebuggerType() != kCCLuaDebuggerNone)
@@ -50,7 +62,6 @@ bool AppDelegate::applicationDidFinishLaunching()
     {
         call->startup();
     }
-
     return true;
 }
 
@@ -79,6 +90,11 @@ void AppDelegate::setProjectConfig(const ProjectConfig& config)
     m_projectConfig = config;
 }
 
+void AppDelegate::setOpenRecents(const CCLuaValueArray& recents)
+{
+    m_openRecents = recents;
+}
+
 // ----------------------------------------
 
 StartupCall *StartupCall::create(AppDelegate *app)
@@ -93,7 +109,6 @@ void StartupCall::startup()
 {
     CCLuaEngine *pEngine = CCLuaEngine::defaultEngine();
     CCLuaStack *pStack = pEngine->getLuaStack();
-	pStack->setXXTEAKeyAndSign();
 
     ProjectConfig &projectConfig = m_app->m_projectConfig;
 
@@ -141,7 +156,24 @@ void StartupCall::startup()
     env.append(path);
     env.append("\"");
     pEngine->executeString(env.c_str());
+    
+    // set open recents
+    lua_State *L = pEngine->getLuaStack()->getLuaState();
+    lua_newtable(L);
+    int i = 1;
+    for (CCLuaValueArrayIterator it = m_app->m_openRecents.begin(); it != m_app->m_openRecents.end(); ++it)
+    {
+        lua_pushstring(L, it->stringValue().c_str());
+        lua_rawseti(L, -2, i);
+        ++i;
+    }
+    lua_setglobal(L, "__G__OPEN_RECENTS__");
 
+    // set quick-cocos2d-x root path
+    std::string quickPath = SimulatorConfig::sharedDefaults()->getQuickCocos2dxRootPath();
+    lua_pushstring(L, quickPath.c_str());
+    lua_setglobal(L, "__G__QUICK_PATH__");
+    
     CCLOG("------------------------------------------------");
     CCLOG("LOAD LUA FILE: %s", path.c_str());
     CCLOG("------------------------------------------------");
