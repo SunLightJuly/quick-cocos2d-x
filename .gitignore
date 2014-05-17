@@ -28,6 +28,28 @@ lib/proj.win32/Release/
 */*/proj.android/obj/
 */*/proj.android/assets/
 */*/proj.android/libs/
+<<<<<<< HEAD
+<<<<<<< .merge_file_a03064
+lib/cocos2dx_extra/proj.win32/Debug/
+lib/lua_extensions/proj.win32/Debug/
+lib/pbc-master/Debug/
+lib/third_party/proj.win32/Debug/
+=======
 *.tlog
 *.lastbuildstate
 *.idb
+>>>>>>> .merge_file_a02748
+=======
+
+player/build-*-Debug/
+player/proj.qt/*.pro.user
+player/proj.qt/*.pro.user.*
+lib/debug/*
+lib/proj.qt/Makefile.libquickqt
+lib/proj.qt/obj/
+lib/proj.qt/Makefile.libchipmunk
+lib/proj.qt/Makefile.libchipmunk.Debug
+lib/proj.qt/Makefile.libchipmunk.Release
+lib/proj.qt/Makefile.libquickqt.Debug
+lib/proj.qt/Makefile.libquickqt.Release
+>>>>>>> chukong_develop
